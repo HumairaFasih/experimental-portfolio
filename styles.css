@@ -1,0 +1,242 @@
+/* >>> #ffee16 keyboard shortcuts:
+      .. cmd + shift + P -> command palette where you can type Application: show your blah blah to get whatever you need
+      .. cmd + ctrl + space -> brings up the emoji
+
+>>>  sometimes elements have default styles that may be interfering with the styles you're implementing
+for some other element
+  >>> a container like div will naturally acquire a certain width and height to make room for the material inside it,
+  but if you want greater space or if there is nothing inside it, then u will have to specify height & width
+  >>> #ffee16 display inline vs block vs inline-block vs none:
+         >. inline displays do not break to a new line (i.e they continue on the same line) whereas block displays do so
+         This happens because inline only has a box taking only as much width & height as required by the content whereas
+         block elements have 100% width UNLESS you specify a different width for them. Their height is determined by the content though unless specified otherwise.
+        >. Block elements do respect width & height constraints but inline elements disregard it
+        >. Inline-block is an inline element that respects height & width
+        >. None acts almost as if the element were never there
+  >>> #ffee16 Some rules to bear in mind:
+     >. The way you order stuff in html is how it will appear on screen
+     >. Children element have a higher z-index that parent elements so they will be on top of the parent element in the z-direction
+  >>> #ffee16 Positioning:
+    >. position: static just means follow the default flow of structure
+    >. position: relative means position stuff RELATIVE to where it used to be
+                (other elements do not get affected by positioning of one element)
+                UNTIL you specify one of the top:  right: bottom: left: coordinates the positioning doesnt take place
+    >. position: absolute permits positioning an element wrt its parent container
+                (that container should have relative position else the child elements will position themselves relative to the body instead)
+                 (other elements do get affected by this type of positioning)
+                 UNTIL you specify one of the top:  right: bottom: left: coordinates the positioning doesnt take place
+                 if it does, its just random.
+    >. position: fixed just keeps stuff fixed in place while scrolling
+  >>> #ffee16 Font-sizing and scales:
+             >. Google fonts to embed fonts so that even if users dont have it supported they can view it.
+             >. em and % are responsive to user but if you specify them in a parent (e.g body) then
+             you specify them in any subsequent children too, they'll be inherited and add up to give you possibly
+             gigantic fonts if you're not cautious, and altho chrome browser dev tools might show you parent font overruled it may not be the case.
+             >. px scales when a person zooms in or out but does not scale when default browser font size is adjusted by users so it is not dynamic.
+                em & % scales either way
+            >. 16px = 100% = 1em = 1 rem
+            >. rem is the best choice in font however, and was introduced in css3. It scales either way (zoom or default browser font size)
+               and is not inherited from parent either.
+            >. when you set fonts, ensure that your browser settings are 100% zoom else you might see extra zoomed fonts which is not
+             depictive of what your users will see.
+
+
+*/
+body {
+  margin: 0;
+  text-align: center;  /* >. places elements that have block display type in the center of their own block
+                          and margin: auto can be used for that block to center it wrt to parent container
+
+                          >. elements that are NOT block type and have NO width set are centred wrt to the parent container */
+  font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+  margin: auto; /* The browser selects a suitable margin to use.
+                   For example, in certain cases this value can be used to center an element. */
+  font-family: 'Arapey', serif; /* the other one is the default fallback font */
+  font-size: 4rem;
+  color: #5E454B;
+  padding-top: 4rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #5E454B;
+}
+
+h3 {
+  margin-top: 2.5rem;
+  color: #4E3620;
+
+}
+
+p {
+  line-height: 2;
+  color: #4D4545;
+}
+
+hr {
+  width: 5%;
+  border-top: dotted thick #5b6d5b;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.right-treebranch {
+  width: 25rem;
+  height: 25rem;
+  border: 0;
+  pointer-events: none;
+  position: absolute;   /* GIF will automatically position wrt body since im not setting position: relative for any container */
+  top: 2rem;
+  right: 0rem;
+}
+
+.left-treebranch {
+  transform: scaleX(-1);
+  width: 25rem;
+  height: 25rem;
+  border: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 2rem;
+  left: 0rem;
+}
+
+
+.bio-p {
+  width: 35%;
+  margin: auto;
+}
+
+.top-container {
+  width: 100%;
+  background-color: #E7D2CC;
+  position: relative;
+  padding-top: 8%;
+
+}
+   /* The border is a shorthand property and allows setting
+          >> border-width
+          >> border-style
+          >> border-color
+      The order of the values does not matter.
+
+    Note: The border will be invisible if its style is not defined. This is because the style defaults to none. */
+
+.top-cloud {
+  position: absolute;
+  left: 16rem;
+  top: 22rem;
+}
+
+.bottom-cloud {
+  position: absolute;
+  right: 18rem;
+  top: 25rem;
+}
+
+.mountain {
+  padding-top: 8%;
+}
+
+.middle-container {
+  background-color: #f6e6e4;
+  position: relative;
+}
+
+.profile {
+  padding: 5% 0 2%;
+}
+
+.skills {
+  padding-top: 0.7%;
+}
+
+.skill-row {
+  padding-top: 1%;
+  width: 50%;
+  margin: 3rem auto 5.5rem;
+  text-align: left;
+}
+
+.c-class {
+  float: left;
+  margin-right: 1rem;
+  width: 22%;
+  padding: 0;
+}
+
+.webdev-class {
+  float: right;
+  margin-left: 1.5rem;
+  width: 22%;
+  padding-top: 1.5rem;
+}
+
+.bottom-container {
+  background-color: #A49393;
+  padding-top: 1rem;
+}
+
+.get-in-touch {
+  padding: 0.7rem 0 1.5rem;
+
+}
+
+.interested {
+  margin: auto;
+}
+
+.last-para {
+  margin: 1.3rem 0 1.8rem;
+}
+
+.btn {
+  -webkit-border-radius: 21px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  color: #5E454B;
+  font-family: 'Quicksand', sans-serif;;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 1.1rem;
+  background-color: #E6CECB;
+  -webkit-box-shadow: -1px 1px 3px 2px #A29191;
+  -moz-box-shadow: -1px 1px 3px 2px #A29191 ;
+  box-shadow: -1px 1px 3px 2px #A29191;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+   background: #E6CECB;
+   border: solid #CE9F9A 2px;
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   text-decoration: none;
+}
+
+.footer-link {
+  color: #655555;
+  text-decoration: none;
+  margin: 1rem;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: #7A6666;
+  text-decoration: underline;
+}
+
+.copyright-p {
+  margin-bottom: 0; /* doing so removes any margin beneath the copyright line that would be a hurdle to bg-color being applied  */
+  padding-bottom: 2%; /* but then the copyright line is way stuck with the bottom so we give it a padding */
+  color: #D9D2C9;
+  font-size: 1.05rem;
+}
