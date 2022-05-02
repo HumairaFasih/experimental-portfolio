@@ -20,8 +20,8 @@ The Project is hosted on GitHub Pages. [View Project.](https://humairafasih.gith
 
 ## GIFs of Animations
 Result on standard Laptop screens (Not fully mobile responsive yet) <hr>
-![](main-animation-record.gif)
-![](skills-animation.gif)
+![](Animations-for-README/main-animation-record.gif)
+![](Animations-for-README/skills-animation.gif)
 
 ## Future Plans
 
